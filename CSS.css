@@ -1,0 +1,331 @@
+/* ==========================================================
+   1. COULEURS ET POLICES
+   Style épuré : blanc, noir, gris, et un seul vert doux.
+   ========================================================== */
+:root {
+  --fond: #ffffff;
+  --gris-clair: #f5f6f7;     /* fond des encadrés */
+  --texte: #14181d;
+  --discret: #5c6670;        /* textes secondaires */
+  --trait: #e3e6e9;          /* fins traits de séparation */
+  --barre: #2b3239;          /* barres du graphique */
+  --piste: #eceff1;          /* fond des barres */
+  --accent: #3f6b55;         /* LA seule couleur : vert doux (n°1, bouton actif) */
+
+  --titres: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+  --corps: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #101315;
+    --gris-clair: #181c1f;
+    --texte: #eceff1;
+    --discret: #9aa4ad;
+    --trait: #2a3035;
+    --barre: #b9c2ca;
+    --piste: #22282c;
+    --accent: #8fc1a4;
+  }
+}
+
+/* ==========================================================
+   2. BASE
+   ========================================================== */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font: 400 17px/1.65 var(--corps);
+}
+
+a { color: inherit; }
+
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.conteneur {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1, h2, h3 { font-family: var(--titres); line-height: 1.2; }
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+
+h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 8px; }
+
+h2 + p { color: var(--discret); max-width: 62ch; margin: 0 0 28px; }
+
+section { padding: 80px 0 0; }
+
+/* ==========================================================
+   3. EN-TÊTE
+   ========================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--fond);
+  border-bottom: 1px solid var(--trait);
+}
+
+.barre-haut {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+  gap: 12px;
+}
+
+.logo { font: 800 1.1rem var(--titres); text-decoration: none; }
+
+nav a {
+  margin-left: 24px;
+  text-decoration: none;
+  color: var(--discret);
+  font-size: 0.95rem;
+}
+
+nav a:hover { color: var(--accent); }
+
+/* ==========================================================
+   4. ACCUEIL
+   ========================================================== */
+.hero { padding: 96px 0 0; }
+
+.surtitre { color: var(--discret); margin: 0 0 16px; font-size: 0.95rem; }
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5.6vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  max-width: 17ch;
+  margin: 0 0 24px;
+}
+
+.intro { max-width: 58ch; color: var(--discret); font-size: 1.15rem; margin: 0; }
+
+.chiffres {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0 32px;
+  margin-top: 56px;
+}
+
+.chiffre { border-top: 1px solid var(--texte); padding: 16px 0 0; }
+
+.chiffre strong {
+  display: block;
+  font: 800 2.6rem/1 var(--titres);
+  margin-bottom: 8px;
+}
+
+.chiffre span { color: var(--discret); font-size: 0.95rem; }
+
+/* ==========================================================
+   5. CARTES, BOUTONS DE CHOIX, TABLEAU
+   ========================================================== */
+.carte {
+  border: 1px solid var(--trait);
+  border-radius: 10px;
+  padding: 26px;
+}
+
+.boutons { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+
+.boutons button {
+  font: 500 0.95rem var(--corps);
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--trait);
+  background: transparent;
+  color: var(--texte);
+  cursor: pointer;
+}
+
+.boutons button:hover { border-color: var(--texte); }
+
+.boutons button[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.alerte {
+  background: var(--gris-clair);
+  border-left: 3px solid var(--accent);
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  margin: 0 0 18px;
+}
+
+table { width: 100%; border-collapse: collapse; }
+
+th {
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--discret);
+  padding: 0 0 10px;
+  border-bottom: 1px solid var(--trait);
+}
+
+td { padding: 10px 0; border-bottom: 1px solid var(--trait); }
+
+td:first-child { width: 22%; font-weight: 500; }
+
+.nombre { text-align: right; width: 18%; white-space: nowrap; color: var(--discret); }
+
+.mesure { display: flex; align-items: center; gap: 12px; }
+
+.piste { flex: 1; height: 10px; background: var(--piste); border-radius: 3px; overflow: hidden; }
+
+.piste span {
+  display: block;
+  height: 100%;
+  background: var(--barre);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+tbody tr:first-child .piste span { background: var(--accent); }
+
+.mesure b { width: 3.2em; text-align: right; font-weight: 500; }
+
+.lecture { margin: 22px 0 0; }
+
+.note { font-size: 0.9rem; color: var(--discret); margin: 12px 0 0; }
+
+/* ==========================================================
+   6. PROFIL RECHERCHÉ
+   ========================================================== */
+.colonnes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+}
+
+.valeurs { list-style: none; margin: 0; padding: 0; }
+
+.valeurs li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--trait);
+}
+
+.valeurs b { font-weight: 500; }
+
+/* ==========================================================
+   7. MÉTHODE ET LIMITES
+   ========================================================== */
+.etapes {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  counter-reset: etape;
+}
+
+.etapes li {
+  counter-increment: etape;
+  border: 1px solid var(--trait);
+  border-radius: 10px;
+  padding: 20px 22px;
+}
+
+.etapes h3::before { content: counter(etape) ". "; color: var(--discret); }
+
+.etapes p { margin: 0; color: var(--discret); font-size: 0.97rem; }
+
+.limites {
+  background: var(--gris-clair);
+  border-left: 3px solid var(--accent);
+  padding: 22px 26px;
+}
+
+.limites h3 { margin-bottom: 12px; }
+
+.limites ul { margin: 0; padding-left: 20px; }
+
+.limites li { margin: 8px 0; }
+
+/* ==========================================================
+   8. COMPÉTENCES
+   ========================================================== */
+.competences {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 0 28px;
+  margin-top: 24px;
+}
+
+.competences div { border-top: 1px solid var(--texte); padding-top: 14px; }
+
+.competences strong { display: block; font: 800 1.15rem var(--titres); margin-bottom: 4px; }
+
+.competences span { color: var(--discret); font-size: 0.97rem; }
+
+/* ==========================================================
+   9. CONTACT ET PIED DE PAGE
+   ========================================================== */
+.contact { margin-top: 80px; padding: 72px 0; border-top: 1px solid var(--trait); }
+
+.contact h2 + p { margin-bottom: 20px; }
+
+.bouton {
+  display: inline-block;
+  background: var(--texte);
+  color: var(--fond);
+  padding: 12px 24px;
+  border: 1px solid var(--texte);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 6px 10px 0 0;
+}
+
+.bouton:hover { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+
+.bouton.contour { background: transparent; color: var(--texte); border: 1px solid var(--trait); }
+
+.bouton.contour:hover { border-color: var(--texte); background: transparent; color: var(--texte); }
+
+footer { padding: 0 0 36px; font-size: 0.88rem; color: var(--discret); }
+
+footer .conteneur { border-top: 1px solid var(--trait); padding-top: 22px; }
+
+footer p { margin: 0; }
+
+/* ==========================================================
+   10. TÉLÉPHONE
+   ========================================================== */
+@media (max-width: 600px) {
+  .logo { font-size: 1rem; }
+  nav a { margin-left: 10px; font-size: 0.88rem; }
+  .hero { padding-top: 56px; }
+  section { padding-top: 60px; }
+  .carte { padding: 18px; }
+  td:first-child { width: 28%; }
+  .nombre { width: 15%; }
+  .mesure b { width: 3em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .piste span { transition: none; }
+}

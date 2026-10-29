@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Observatoire Data Analyst</title>
+  
+  <!-- Lien vers le CSS -->
+  <link rel="stylesheet" href="CSS.css">
+</head>
+<body>
+
+  <!-- -- EN-TÊTE  -->
+  <header>
+    <div class="conteneur barre-haut">
+      <a href="#accueil" class="logo">Fadima Samia TAPSOBA</a>
+      <nav>
+        <a href="#outils">Outils</a>
+        <a href="#profil">Profil</a>
+        <a href="#methode">Méthode</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CORPS -->
+  <main>
+
+    <!-- 1. Accueil -->
+    <section id="accueil" class="hero">
+      <div class="conteneur">
+        <p class="surtitre">Master 1 Systèmes d'Information · Projet personnel</p>
+        <h1>Que demandent vraiment les offres de Data Analyst ?</h1>
+        <p class="intro">
+          J'ai collecté des offres d'emploi via l'API de France Travail, je les ai
+          nettoyées et analysées pour savoir quelles compétences travailler en
+          priorité quand on débute.
+        </p>
+
+        <div class="chiffres">
+          <div class="chiffre">
+            <strong>134</strong>
+            <span>offres de data / BI analyst</span>
+          </div>
+          <div class="chiffre">
+            <strong>63 %</strong>
+            <span>citent au moins un outil de BI (Power BI, Tableau, Qlik, Looker)</span>
+          </div>
+          <div class="chiffre">
+            <strong>56 %</strong>
+            <span>accessibles avec un an d'expérience ou moins</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Outils -->
+    <section id="outils">
+      <div class="conteneur">
+        <h2>Les outils les plus cités</h2>
+        <p>Part des offres dont l'annonce mentionne chaque outil.</p>
+
+        <div class="carte">
+          <div class="boutons">
+            <button type="button" data-profil="tout" aria-pressed="true">Toutes les offres (134)</button>
+            <button type="button" data-profil="debutant" aria-pressed="false">Débutant accepté (60)</button>
+            <button type="button" data-profil="alternance" aria-pressed="false">Alternance (16)</button>
+          </div>
+
+          <p class="alerte" id="alerte" hidden></p>
+
+          <table id="tableau-outils">
+            <thead>
+              <tr>
+                <th>Outil</th>
+                <th>Part des offres</th>
+                <th class="nombre">Offres</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Power BI</td><td><div class="mesure"><div class="piste"><span style="width:100%"></span></div><b>52 %</b></div></td><td class="nombre">70</td></tr>
+              <tr><td>SQL</td><td><div class="mesure"><div class="piste"><span style="width:88%"></span></div><b>46 %</b></div></td><td class="nombre">62</td></tr>
+              <tr><td>Python</td><td><div class="mesure"><div class="piste"><span style="width:59%"></span></div><b>31 %</b></div></td><td class="nombre">41</td></tr>
+              <tr><td>Excel</td><td><div class="mesure"><div class="piste"><span style="width:46%"></span></div><b>24 %</b></div></td><td class="nombre">32</td></tr>
+              <tr><td>ETL</td><td><div class="mesure"><div class="piste"><span style="width:43%"></span></div><b>22 %</b></div></td><td class="nombre">30</td></tr>
+              <tr><td>Tableau</td><td><div class="mesure"><div class="piste"><span style="width:37%"></span></div><b>19 %</b></div></td><td class="nombre">26</td></tr>
+              <tr><td>GCP</td><td><div class="mesure"><div class="piste"><span style="width:24%"></span></div><b>13 %</b></div></td><td class="nombre">17</td></tr>
+              <tr><td>Looker</td><td><div class="mesure"><div class="piste"><span style="width:16%"></span></div><b>8 %</b></div></td><td class="nombre">11</td></tr>
+              <tr><td>Qlik</td><td><div class="mesure"><div class="piste"><span style="width:14%"></span></div><b>7 %</b></div></td><td class="nombre">10</td></tr>
+              <tr><td>Azure</td><td><div class="mesure"><div class="piste"><span style="width:14%"></span></div><b>7 %</b></div></td><td class="nombre">10</td></tr>
+            </tbody>
+          </table>
+
+          <p class="lecture" id="lecture"></p>
+          <p class="note">
+            Une annonce qui ne cite pas un outil ne signifie pas qu'il est inutile.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Profil recherché -->
+    <section id="profil">
+      <div class="conteneur">
+        <h2>Le profil recherché</h2>
+
+        <div class="colonnes">
+          <article class="carte">
+            <h3>Missions demandées</h3>
+            <ul class="valeurs">
+              <li><span>Tableaux de bord</span><b>58 %</b></li>
+              <li><span>Reporting</span><b>54 %</b></li>
+              <li><span>Data visualisation</span><b>37 %</b></li>
+              <li><span>Statistiques</span><b>30 %</b></li>
+              <li><span>Machine learning / IA</span><b>25 %</b></li>
+            </ul>
+          </article>
+
+          <article class="carte">
+            <h3>Expérience exigée</h3>
+            <ul class="valeurs">
+              <li><span>Débutant accepté</span><b>60</b></li>
+              <li><span>Moins d'un an</span><b>3</b></li>
+              <li><span>1 an</span><b>12</b></li>
+              <li><span>2 à 3 ans</span><b>23</b></li>
+              <li><span>4 ans et plus</span><b>24</b></li>
+              <li><span>Non précisée</span><b>12</b></li>
+            </ul>
+            <p class="note">Nombre d'offres sur 134.</p>
+          </article>
+
+          <article class="carte">
+            <h3>Où sont les offres ?</h3>
+            <ul class="valeurs">
+              <li><span>Île-de-France</span><b>74</b></li>
+              <li><span>Reste de la France</span><b>60</b></li>
+            </ul>
+            <p class="note">
+              Le reste de la France est trop dispersé pour comparer les villes :
+              le plus gros département compte 8 offres.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Méthode et limites -->
+    <section id="methode">
+      <div class="conteneur">
+        <h2>Méthode et limites</h2>
+
+        <ol class="etapes">
+          <li>
+            <h3>Collecte</h3>
+            <p>Appels à l'API « Offres d'emploi v2 » de France Travail, avec 7 recherches par mots-clés le 2 octobre 2026 : 393 offres collectées.</p>
+          </li>
+          <li>
+            <h3>Nettoyage</h3>
+            <p>Suppression des doublons et des offres hors sujet (commercial, marketing), puis classement des postes par familles. Il reste 134 offres de data / BI analyst.</p>
+          </li>
+          <li>
+            <h3>Analyse</h3>
+            <p>Recherche des outils et des missions dans le texte des annonces avec Python (pandas).</p>
+          </li>
+        </ol>
+
+        <div class="limites">
+          <h3>Limites à garder en tête</h3>
+          <ul>
+            <li><strong>Échantillon réduit :</strong> 134 offres, dont 60 acceptant les débutants et seulement 16 en alternance.</li>
+            <li><strong>Pas de stages :</strong> l'API recense surtout des emplois, d'où l'étude des offres accessibles aux débutants.</li>
+            <li><strong>Une seule source :</strong> uniquement les offres diffusées par France Travail.</li>
+            <li><strong>Pas de salaires :</strong> l'information manque.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Contact -->
+    <section id="contact" class="contact">
+      <div class="conteneur">
+        <h2>Travaillons ensemble</h2>
+        <p>Je recherche un stage de 4 mois en data analyse.</p>
+        <a class="bouton" href="mailto:fadima-samia.tapsoba@etu.univ-grenoble-alpes.fr">M'écrire</a>
+        <a class="bouton contour" href="https://github.com/Samiafadima">GitHub</a>
+        <a class="bouton contour" href="CV fadima Samia TAPSOBA.pdf">CV</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIED DE PAGE -->
+  <footer>
+    <div class="conteneur">
+      <p>Source : France Travail, API Offres d'emploi v2. Données collectées le 2 octobre 2026.</p>
+    </div>
+  </footer>
+
+  <!-- Script des boutons (juste avant la fin du body) -->
+  <script src="script.js"></script>
+</body>
+</html>
